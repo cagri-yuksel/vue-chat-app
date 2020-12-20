@@ -1,9 +1,13 @@
 {
-  "user": [
+  "users": [
     {
       "id": 1,
+ baris
       "username": "cagriyuksel",
       "fullName": "Çağrı Yüksel",
+
+      "username": "red",
+test
       "status": false,
       "password": "123",
       "messages": [{ "id": 1, "message": "Çağrı yükselin mesajı" }]
@@ -12,8 +16,22 @@
       "id": 2,
       "username": "baristunar",
       "status": true,
+ baris
       "password": "123",
       "messages": [{ "id": 1, "message": "Barış Tunarın mesajı" }]
     }
   ]
 }
+
+      "password": "4"
+    }
+  ],
+  "chat": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ]
+}
+ test
