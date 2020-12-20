@@ -14,6 +14,14 @@ export default {
   components: {
     Login,
   },
+  methods: {
+    checkLoginStatus(status) {
+     this.loginIsActive = this.status;
+    },
+    pushList(userList) {
+      this.userInfo.push(userList);
+    },
+  },
 };
 </script>
 
