@@ -1,7 +1,19 @@
 {
   "user": [
-    { "id": 1, "username": "çağrı yüksel", "status": false, "password": "123" },
-    { "id": 2, "username": "barış tunar", "status": true, "password": "123" }
-  ],
-  "chat": [{ "id": 1, "body": "some comment", "postId": 1 }]
+    {
+      "id": 1,
+      "username": "cagriyuksel",
+      "fullName": "Çağrı Yüksel",
+      "status": false,
+      "password": "123",
+      "messages": [{ "id": 1, "message": "Çağrı yükselin mesajı" }]
+    },
+    {
+      "id": 2,
+      "username": "baristunar",
+      "status": true,
+      "password": "123",
+      "messages": [{ "id": 1, "message": "Barış Tunarın mesajı" }]
+    }
+  ]
 }
