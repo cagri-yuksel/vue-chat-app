@@ -1,26 +1,56 @@
 <template>
   <div class="card mr-10">
-    <ul class="messages">
-      <li>
-        olmaz o şekilde neden yaptigini bilmiyorum ama saçma olmuş o sanki<small
-          >14:55</small
-        >
-      </li>
-      <li class="current-user">
-        abi bak bana burasi neden b şekilde büyük olur bilmiyorum ama böyle bir
-        mesaj görmedim. biraz daja büyütürsem ne olacak<small>14:55</small>
+    <ul class="messages" ref="container">
+      <li
+        v-for="user in users"
+        :key="user.id"
+        :class="{ 'current-user': activeUser }"
+      >
+        {{ user.message }}<small>14:55</small>
       </li>
     </ul>
     <div class="text-container d-flex justify-content-start align-items-start">
-      <input placeholder="Kurs nasıl gidiyor? :)" type="text" />
-      <button class="btn-primary">Gönder</button>
+      <input @keypress.enter="testMethod" v-model="message" type="text" />
+      <button :disabled="isDisable" class="btn-primary" @click="testMethod()">
+        Send
+      </button>
     </div>
   </div>
 </template>
 
 <script>
-export default {};
+export default {
+  props: ["users", "activeUser"],
+  data() {
+    return {
+      message: "",
+    };
+  },
+
+  methods: {
+    scrollToEnd() {
+      let content = this.$refs.container;
+      content.scrollTop = content.scrollHeight;
+    },
+
+    testMethod() {
+    
+      this.$emit("send-message-event", this.message);
+      this.message = "";
+      console.log("mesaj", this.message);
+    },
+  },
+  computed: {
+    isDisable() {
+      return this.message == "" ? true : false;
+    },
+  },
+  updated() {
+    this.scrollToEnd();
+  },
+  mounted() {
+    this.scrollToEnd();
+  },
+};
 </script>
 
-<style>
-</style>
