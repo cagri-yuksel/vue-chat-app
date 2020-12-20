@@ -1,8 +1,8 @@
 {
-  "user": [
+  "users": [
     {
       "id": 1,
-      "username": "çağrı yüksel",
+      "username": "red",
       "status": false,
       "password": "123"
     },
@@ -10,7 +10,7 @@
       "id": 2,
       "username": "barış tunar",
       "status": true,
-      "password": "123"
+      "password": "4"
     }
   ],
   "chat": [
@@ -18,5 +18,6 @@
       "id": 1,
       "body": "some comment",
       "postId": 1
-    } ]
+    }
+  ]
 }
