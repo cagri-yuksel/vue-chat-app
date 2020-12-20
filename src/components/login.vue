@@ -1,9 +1,11 @@
 <template>
   <div class="container position-relative">
-    <div >
-      <input type="text" />
-      <input type="password" />
-      <button @click="login" class="btn btn-waring">check</button>
+    <p>{{ userList }}</p>
+    <p>{{ status }}</p>
+    <div>
+      <input type="text" v-model="username" />
+      <input type="password" v-model="pswrd" />
+      <button @click="checkLogin" class="btn btn-waring">Giriş yap</button>
     </div>
   </div>
 </template>
@@ -13,29 +15,34 @@ import axios from "axios";
 export default {
   data() {
     return {
-      username:null,
-      pswrd:null
+      username: null,
+      pswrd: null,
+      userList: null,
+      status: true,
     };
   },
-  methods:{
-    login(){
-      axios.get('http://localhost:3000/user')
-  .then(function(res) {
-    if(r){
- console.log("oldu", res.data)
-  }else{
-    console.log("olmadı")
-  }
-  
-     
-    
-  })
-  .catch(function (error) {
-    // handle error
-    console.log(error);
-  })
-    }
-  }
+  methods: {
+    checkLogin() {
+      axios
+        .get(
+          "http://localhost:3000/users?password="+this.pswrd+"&username="+this.username
+        )
+        .then((res) => {
+          this.userList = res.data;
+          console.log(res);
+          if (this.userList.length > 0) {
+            this.status = false;
+            this.$emit("loggedIn", this.status);
+            this.$emit("UserInfo", this.userList);
+          } else {
+            this.status = true;
+          }
+        })
+        .catch((e) => {
+          console.log("e", e);
+        });
+    },
+  },
 };
 </script>
 
