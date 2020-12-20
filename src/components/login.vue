@@ -18,7 +18,7 @@ export default {
       username: null,
       pswrd: null,
       userList: null,
-      status: true,
+      status:true,
     };
   },
   methods: {
@@ -32,7 +32,7 @@ export default {
           console.log(res);
           if (this.userList.length > 0) {
             this.status = false;
-            this.$emit("loggedIn", this.status);
+            this.$emit("logIn", this.status);
             this.$emit("UserInfo", this.userList);
           } else {
             this.status = true;
@@ -45,6 +45,5 @@ export default {
   },
 };
 </script>
-
 <style>
 </style>

@@ -1,9 +1,5 @@
 <template>
-  <login
-    @UserInfo="pushList"
-    @loggedIn="checkLoginStatus"
-    v-if="loginIsActive"
-  />
+  <login v-if="loginIsActive" @UserInfo="pushList" @logIn="checkLoginStatus" />
   <div class="container">
     <div
       class="chat--app--container d-flex justify-content-between align-items-start"
@@ -28,8 +24,8 @@ export default {
     Login,
   },
   methods: {
-    checkLoginStatus(status) {
-     this.loginIsActive = this.status;
+    checkLoginStatus(event) {
+      this.loginIsActive = event;
     },
     pushList(userList) {
       this.userInfo.push(userList);
