@@ -1,26 +1,27 @@
 <template>
- baris
-  <!-- <login v-if="true" /> -->
-
+<div>
+  <ul><li v-for="i in userInfo" :key="i.id"> aktif kullanıcı kim?  {{i.username}} </li></ul>
   <login v-if="loginIsActive" @UserInfo="pushList" @logIn="checkLoginStatus" />
- test
+
   <div class="container">
     <div
       class="chat--app--container d-flex justify-content-between align-items-start"
     >
-     baris
       <chat-section
+        v-if="!loginIsActive"
         :users="users"
         @send-message-event="sendMessage"
         :activeUser="activeUser"
       />
-      <active-users />
-
+      <active-users :userInfo="userInfo" v-if="!loginIsActive" />
       <!-- chatsection -->
       <!-- active users -->
- test
+      <!-- database yeniden topluyalım [[ ]] olarak dönüyor o bende çalışanı koydum -->
+      <!-- login tamam hızlıca tasarımı bitiririm. -->
+      <!-- chatting bence ayrı olmalı chat ayrı bir arrayi içinde app.vue içersinde aktif kullanıcın id si yada nicki alınarak chat
+      arrayi içersinden ona ait olan konuşmalar dökülsün  -->
     </div>
-    <p>{{ loginIsActive }}</p>
+  </div>
   </div>
 </template>
 
@@ -28,19 +29,14 @@
 import axios from "axios";
 import chatSection from "./components/chatSection.vue";
 import activeUsers from "./components/activeUsers.vue";
+import login from "./components/login";
 
 /* import Login from "./components/login.vue"; */
 export default {
-  data() {
-    return {
-      loginIsActive: true,
-      userInfo: [],
-    };
-  },
   components: {
     chatSection,
     activeUsers,
-    /*     Login, */
+    login,
   },
   data() {
     return {
@@ -51,12 +47,13 @@ export default {
         fullName: "Barış Tunar",
         message: "",
       },
-      activeUser: true,
+      loginIsActive: true,
+      userInfo: [],
     };
   },
-  created() {
+  /*   created() {
     axios
-      .get("http://localhost:3333/user")
+      .get("http://localhost:3000/users")
       .then((response) => {
         console.log("response", response);
         // this.comments = response.data.filter((c) => c.id <= 10);
@@ -64,7 +61,7 @@ export default {
       .catch((e) => {
         console.log("e", e);
       });
-  },
+  }, */
   methods: {
     sendMessage(value) {
       if (value != "") {
@@ -73,13 +70,11 @@ export default {
         console.log(this.users);
       }
     },
-  },
-  methods: {
     checkLoginStatus(event) {
       this.loginIsActive = event;
     },
     pushList(userList) {
-      this.userInfo.push(userList);
+      this.userInfo = userList;
     },
   },
 };
