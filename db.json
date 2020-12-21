@@ -8,16 +8,18 @@
     },
     {
       "id": 2,
-      "username": "barış tunar",
+      "username": "baristunar",
       "status": true,
-      "password": "4"
+      "password": "4",
+      "img": "https://avatars2.githubusercontent.com/u/58105650?s=45"
     }
   ],
-  "chat": [
-    {
-      "id": 1,
-      "body": "some comment",
-      "postId": 1
+  "chat": {
+    "id": 21,
+    "recentChat": {
+    "red":{
+      
     }
-  ]
+    }
+  }
 }

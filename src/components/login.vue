@@ -1,7 +1,5 @@
 <template>
   <div class="container position-relative">
-    <p>{{ userList }}</p>
-    <p>{{ status }}</p>
     <div>
       <input type="text" v-model="username" />
       <input type="password" v-model="pswrd" />
@@ -18,15 +16,14 @@ export default {
       username: null,
       pswrd: null,
       userList: null,
-      status:true,
+      status: true,
     };
   },
+  /// 
   methods: {
     checkLogin() {
       axios
-        .get(
-          "http://localhost:3000/users?password="+this.pswrd+"&username="+this.username
-        )
+        .get("http://localhost:3000/users?password="+this.pswrd+"&username="+this.username)
         .then((res) => {
           this.userList = res.data;
           console.log(res);
