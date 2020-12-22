@@ -1,7 +1,7 @@
 <template>
   <div class="card mr-10">
     <ul class="messages" ref="container">
-      <li v-for="i in chatLog" :key="i">i.mesaj: {{ i.mesaj }}</li>
+      <li :class="{ 'current-user' : userInfo[0].id == i.id }" v-for="i in chatLog"  :key="i">i.mesaj: {{ i.mesaj }}</li>
       <li v-for="i in chatLog" :key="i">alt bölüm {{ i }}</li>
     </ul>
     <!--       <li

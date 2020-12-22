@@ -1,6 +1,4 @@
 <template>
-  <!-- <p> active user: {{toUser}} </p> -->
-  <!-- örnek olabilir diye yaptım  -->
   <div class="card card-light w-40">
     <div class="card--header">
       <h3>Aktif Kullanıcılar</h3>
@@ -8,7 +6,7 @@
     <div
       class="card--body list-group"
       @click="changeValue(i)"
-      v-for="i in userList"
+      v-for="i in activeUser"
       :key="i.id"
     >
       <div
@@ -21,7 +19,7 @@
         </div>
         <button
           type="button"
-          class="list-group-item list-group-item-action"
+          class="list-group-item list-group-item-action" :class="{'active': toUser.id ==i.id}"
           aria-current="true"
         >
           {{ i.username }}
@@ -33,18 +31,18 @@
 <script>
 import axios from "axios";
 export default {
+  props:["userInfo"],
   data() {
     return {
       userList: [],
       selectUser: [],
-      toUser: null,
+      toUser: "",
     };
   },
   methods: {
     changeValue(e) {
       this.toUser = e;
       this.$emit("toUserChange", this.toUser);
-      console.log("changevalue  ", this.toUser.id);
     },
   },
   created() {
@@ -58,6 +56,13 @@ export default {
         console.log("e", e);
       });
   },
+  computed:{
+    activeUser(){
+    return this.userList.filter((f)=>{
+       return f.id !== this.userInfo[0].id
+     })
+    }
+  }
 };
 </script>
 
