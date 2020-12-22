@@ -1,25 +1,61 @@
 {
   "users": [
     {
-      "id": 1,
+      "id": 81,
       "username": "red",
       "status": false,
       "password": "123"
     },
     {
-      "id": 2,
+      "id": 20,
       "username": "baristunar",
       "status": true,
       "password": "4",
       "img": "https://avatars2.githubusercontent.com/u/58105650?s=45"
+    },
+    {
+      "id": 15,
+      "username": "okkito",
+      "status": true,
+      "password": "0"
     }
   ],
-  "chat": {
-    "id": 21,
-    "recentChat": {
-    "red":{
-      
+  "chat": [
+    {
+      "id": 81,
+      "mesaj": "selam",
+      "to": 15,
+      "date": "UTC"
+    },
+    {
+      "id": 15,
+      "mesaj": "merhaba",
+      "to": 81,
+      "date": "UTC"
+    },
+    {
+      "id": 81,
+      "mesaj": "selams",
+      "to": 20,
+      "date": "UTC"
+    },
+    {
+      "id": 15,
+      "mesaj": "merhaba",
+      "to": 20,
+      "date": "UTC"
+    },
+    {
+      "id": 20,
+      "mesaj": "Okkito",
+      "to": 81,
+      "date": "UTC"
+    },
+    {
+      "id": 20,
+      "mesaj": "2 seçildi",
+      "to": 15,
+      "date": "UTC"
     }
-    }
-  }
+  ]
 }
