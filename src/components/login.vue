@@ -1,12 +1,30 @@
 <template>
-  <div class="container position-relative">
-    <p>{{ userList }}</p>
-    <p>{{ status }}</p>
+<div >
+  <div class="container centered ">
     <div>
-      <input type="text" v-model="username" />
-      <input type="password" v-model="pswrd" />
-      <button @click="checkLogin" class="btn btn-waring">Giriş yap</button>
+      <form class="px-4 py-3">
+        <div class="mb-3">
+          <label class="form-label"
+            >Kullanıcı Adı</label
+          >
+          <input
+            type="text"
+            v-model="username"
+            class="form-control"
+          />
+        </div>
+        <div class="mb-3">
+          <label class="form-label"
+            >Şifre</label
+          >
+          <input ttype="password" v-model="pswrd" class="form-control" />
+        </div>
+        <div class="mb-3">
+        </div>
+      </form>
+      <button @click="checkLogin" class="btn btn-primary centered button">Giriş yap</button>
     </div>
+  </div>
   </div>
 </template>
 
@@ -18,14 +36,18 @@ export default {
       username: null,
       pswrd: null,
       userList: null,
-      status:true,
+      status: true,
     };
   },
+
   methods: {
     checkLogin() {
       axios
         .get(
-          "http://localhost:3000/users?password="+this.pswrd+"&username="+this.username
+          "http://localhost:3000/users?password=" +
+            this.pswrd +
+            "&username=" +
+            this.username
         )
         .then((res) => {
           this.userList = res.data;
@@ -45,5 +67,15 @@ export default {
   },
 };
 </script>
-<style>
+<style scoped>
+.centered {
+  margin-top: 15%;
+}
+.centered button {
+  margin-left: 34%;
+  margin-top: -10% ;
+}
+.back{
+  background-color: #edafb8 !important;
+}
 </style>

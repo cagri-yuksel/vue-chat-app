@@ -1,37 +1,58 @@
 {
   "users": [
     {
-      "id": 1,
- baris
-      "username": "cagriyuksel",
-      "fullName": "Çağrı Yüksel",
-
+      "id": 81,
       "username": "red",
-test
-      "status": false,
-      "password": "123",
-      "messages": [{ "id": 1, "message": "Çağrı yükselin mesajı" }]
+      "password": "123"
     },
     {
-      "id": 2,
+      "id": 20,
       "username": "baristunar",
-      "status": true,
- baris
-      "password": "123",
-      "messages": [{ "id": 1, "message": "Barış Tunarın mesajı" }]
-    }
-  ]
-}
-
-      "password": "4"
+      "password": "4",
+      "img": "https://avatars2.githubusercontent.com/u/58105650?s=45"
+    },
+    {
+      "id": 15,
+      "username": "okkito",
+      "password": "0"
     }
   ],
   "chat": [
     {
-      "id": 1,
-      "body": "some comment",
-      "postId": 1
+      "id": 81,
+      "mesaj": "selam",
+      "to": 15,
+      "date": "UTC"
+    },
+    {
+      "id": 15,
+      "mesaj": "merhaba",
+      "to": 81,
+      "date": "UTC"
+    },
+    {
+      "id": 81,
+      "mesaj": "selams",
+      "to": 20,
+      "date": "UTC"
+    },
+    {
+      "id": 15,
+      "mesaj": "merhaba",
+      "to": 20,
+      "date": "UTC"
+    },
+    {
+      "id": 20,
+      "mesaj": "Okkito",
+      "to": 81,
+      "date": "UTC"
+    },
+    {
+      "id": 20,
+      "mesaj": "2 seçildi",
+      "to": 15,
+      "date": "UTC"
     }
   ]
 }
- test
