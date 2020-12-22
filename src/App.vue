@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="back">
     <div>
       <login
         v-if="loginIsActive"
@@ -15,7 +15,7 @@
         <chat-section
           :userInfo="userInfo"
           v-if="!loginIsActive"
-          :users="users"
+
           :changeToUser="changeToUser"
         />
         <active-users
@@ -43,13 +43,7 @@ export default {
   },
   data() {
     return {
-      users: [],
-      userData: {
-        username: "baristunar",
-        password: "123",
-        fullName: "Barış Tunar",
-        message: "",
-      },
+
       userInfo: [],
       loginIsActive: true,
       changeToUser: null,
@@ -69,8 +63,6 @@ export default {
 };
 </script>
 <style scoped>
-.back {
-  background-color: #edafb8 !important;
-}
+
 </style>
 

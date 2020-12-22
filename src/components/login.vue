@@ -1,5 +1,5 @@
 <template>
-<div class="back">
+<div >
   <div class="container centered ">
     <div>
       <form class="px-4 py-3">

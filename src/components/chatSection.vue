@@ -1,17 +1,8 @@
 <template>
   <div class="card mr-10">
-    <ul class="messages" ref="container">
-      <li :class="{ 'current-user' : userInfo[0].id == i.id }" v-for="i in chatLog"  :key="i">i.mesaj: {{ i.mesaj }}</li>
-      <li v-for="i in chatLog" :key="i">alt bölüm {{ i }}</li>
+    <ul class="messages " ref="container">
+      <li :class="{ 'current-user' : userInfo[0].id == i.id }" v-for="i in chatLog"  :key="i">{{ i.mesaj }}</li>
     </ul>
-    <!--       <li
-        v-for="user in users"
-        :key="user.id"
-        :class="{ 'current-user': activeUser }"
-      >
-        {{ user.message }}<small>14:55</small>
-      </li> -->
-
     <div class="text-container d-flex justify-content-start align-items-start">
       <input @keypress.enter="testMethod" v-model="message" type="text" />
       <button :disabled="isDisable" class="btn-primary" @click="testMethod()">
@@ -24,11 +15,11 @@
 <script>
 import axios from "axios";
 export default {
-  props: ["users", "userInfo", "changeToUser"],
+  props: [ "userInfo", "changeToUser"],
   data() {
     return {
       chatLog: [],
-      message: "",
+      message: {},
     };
   },
 
@@ -68,4 +59,8 @@ export default {
   }
 };
 </script>
-
+<style scoped>
+.back {
+  background-color: #edafb8 !important;
+}
+</style>
