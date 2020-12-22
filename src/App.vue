@@ -16,7 +16,7 @@
           :users="users"
           :changeToUser="changeToUser"
         />
-        <active-users  @toUserChange="changeUser" v-if="!loginIsActive" />
+        <active-users :userInfo="userInfo" @toUserChange="changeUser" v-if="!loginIsActive" />
         <!-- chatsection -->
         <!-- active users -->
         <!-- database yeniden topluyalım [[ ]] olarak dönüyor o bende çalışanı koydum -->
@@ -64,7 +64,6 @@ export default {
     },
     changeUser(toUser){
       this.changeToUser = toUser
-      console.log("app vue", this.changeToUser.id)
 
     }
   },
