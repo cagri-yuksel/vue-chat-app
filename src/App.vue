@@ -1,10 +1,12 @@
 <template>
   <div>
-    <login
-      v-if="loginIsActive"
-      @UserInfo="pushList"
-      @logIn="checkLoginStatus"
-    />
+    <div>
+      <login
+        v-if="loginIsActive"
+        @UserInfo="pushList"
+        @logIn="checkLoginStatus"
+      />
+    </div>
 
     <div class="container">
       <div
@@ -16,13 +18,11 @@
           :users="users"
           :changeToUser="changeToUser"
         />
-        <active-users :userInfo="userInfo" @toUserChange="changeUser" v-if="!loginIsActive" />
-        <!-- chatsection -->
-        <!-- active users -->
-        <!-- database yeniden topluyalım [[ ]] olarak dönüyor o bende çalışanı koydum -->
-        <!-- login tamam hızlıca tasarımı bitiririm. -->
-        <!-- chatting bence ayrı olmalı chat ayrı bir arrayi içinde app.vue içersinde aktif kullanıcın id si yada nicki alınarak chat
-      arrayi içersinden ona ait olan konuşmalar dökülsün  -->
+        <active-users
+          :userInfo="userInfo"
+          @toUserChange="changeUser"
+          v-if="!loginIsActive"
+        />
       </div>
     </div>
   </div>
@@ -52,7 +52,7 @@ export default {
       },
       userInfo: [],
       loginIsActive: true,
-     changeToUser:null,
+      changeToUser: null,
     };
   },
   methods: {
@@ -62,11 +62,15 @@ export default {
     pushList(userList) {
       this.userInfo.push(...userList);
     },
-    changeUser(toUser){
-      this.changeToUser = toUser
-
-    }
+    changeUser(toUser) {
+      this.changeToUser = toUser;
+    },
   },
 };
 </script>
+<style scoped>
+.back {
+  background-color: #edafb8 !important;
+}
+</style>
 
