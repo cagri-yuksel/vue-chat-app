@@ -1,28 +1,29 @@
 <template>
-  <div class="back">
-    <div>
-      <login
-        v-if="loginIsActive"
-        @UserInfo="pushList"
-        @logIn="checkLoginStatus"
-      />
-    </div>
-
+  <div>
     <div class="container">
-      <div
-        class="chat--app--container d-flex justify-content-between align-items-start"
-      >
-        <chat-section
-          :userInfo="userInfo"
-          v-if="!loginIsActive"
-
-          :changeToUser="changeToUser"
-        />
-        <active-users
-          :userInfo="userInfo"
-          @toUserChange="changeUser"
-          v-if="!loginIsActive"
-        />
+      <div>
+        <div>
+          <login
+            style="margin-top: 200px"
+            v-if="loginIsActive"
+            @UserInfo="pushList"
+            @logIn="checkLoginStatus"
+          />
+        </div>
+        <div
+          class="chat--app--container d-flex justify-content-between align-items-start"
+        >
+          <chat-section
+            :userInfo="userInfo"
+            v-if="!loginIsActive"
+            :changeToUser="changeToUser"
+          />
+          <active-users
+            :userInfo="userInfo"
+            @toUserChange="changeUser"
+            v-if="!loginIsActive"
+          />
+        </div>
       </div>
     </div>
   </div>
@@ -43,7 +44,6 @@ export default {
   },
   data() {
     return {
-
       userInfo: [],
       loginIsActive: true,
       changeToUser: null,
@@ -63,6 +63,9 @@ export default {
 };
 </script>
 <style scoped>
+.back {
+  background-color: red !important;
 
+}
 </style>
 

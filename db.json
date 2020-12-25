@@ -3,54 +3,36 @@
     {
       "id": 81,
       "username": "red",
-      "password": "123"
+      "fullname": "Çağrı Yüksel",
+      "password": "123",
+      "img": "https://avatars3.githubusercontent.com/u/50049470?s=45"
     },
     {
       "id": 20,
       "username": "baristunar",
+      "fullname": "Barış Tunar",
       "password": "4",
       "img": "https://avatars2.githubusercontent.com/u/58105650?s=45"
     },
     {
       "id": 15,
-      "username": "okkito",
-      "password": "0"
+      "username": "Korayguler",
+      "fullname": "Koray Güler",
+      "password": "0",
+      "img": "https://avatars2.githubusercontent.com/u/44482506?s=45"
+    },
+    {
+      "id": 45,
+      "username": "cengizmataraci",
+      "fullname": "Cengiz Mataracı",
+      "password": "0",
+      "img": "https://avatars2.githubusercontent.com/u/13690848?s=45"
     }
   ],
   "chat": [
     {
       "id": 81,
-      "mesaj": "selam",
-      "to": 15,
-      "date": "UTC"
-    },
-    {
-      "id": 15,
-      "mesaj": "merhaba",
-      "to": 81,
-      "date": "UTC"
-    },
-    {
-      "id": 81,
-      "mesaj": "selams",
-      "to": 20,
-      "date": "UTC"
-    },
-    {
-      "id": 15,
-      "mesaj": "merhaba",
-      "to": 20,
-      "date": "UTC"
-    },
-    {
-      "id": 20,
-      "mesaj": "Okkito",
-      "to": 81,
-      "date": "UTC"
-    },
-    {
-      "id": 20,
-      "mesaj": "2 seçildi",
+      "mesaj": ["test"],
       "to": 15,
       "date": "UTC"
     }

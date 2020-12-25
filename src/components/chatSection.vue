@@ -1,11 +1,17 @@
 <template>
   <div class="card mr-10">
-    <ul class="messages " ref="container">
-      <li :class="{ 'current-user' : userInfo[0].id == i.id }" v-for="i in chatLog"  :key="i">{{ i.mesaj }}</li>
+    <ul class="messages" ref="container">
+      <li
+        :class="{ 'current-user': userInfo[0].id == i.userId }"
+        v-for="i in chatLog"
+        :key="i"
+      >
+        {{ i.mesaj }}
+      </li>
     </ul>
     <div class="text-container d-flex justify-content-start align-items-start">
       <input @keypress.enter="testMethod" v-model="message" type="text" />
-      <button :disabled="isDisable" class="btn-primary" @click="testMethod()">
+      <button :disabled="isDisable" class="btn-primary" @click="sendMessage">
         Send
       </button>
     </div>
@@ -15,11 +21,11 @@
 <script>
 import axios from "axios";
 export default {
-  props: [ "userInfo", "changeToUser"],
+  props: ["userInfo", "changeToUser"],
   data() {
     return {
       chatLog: [],
-      message: {},
+      message: "",
     };
   },
 
@@ -28,11 +34,51 @@ export default {
       let content = this.$refs.container;
       content.scrollTop = content.scrollHeight;
     },
+    sendMessage() {
+   
+
+
+      const chat = {
+      userId:this.userInfo[0].id,
+        mesaj: this.message,
+        to: this.changeToUser.id,
+        date: "UTC",
+      };
+
+      axios
+        .post("http://localhost:3000/chat",chat)
+        .then((save_message) => {
+          console.log("save_message", save_message);
+          this.chatLog.push(save_message.data)
+          
+        });
+          console.log(chat);
+    },
   },
   computed: {
     isDisable() {
       return this.message == "" ? true : false;
     },
+  },
+  created(){
+axios
+        .get(
+          "http://localhost:3000/chat?id=" +
+            this.userInfo[0].id +
+            "&to=" +
+            this.changeToUser.id +
+            "&to=" +
+            this.userInfo[0].id +
+            "&id=" +
+            this.changeToUser.id
+        )
+        .then((response) => {
+          console.log("response chat", response);
+          this.chatLog.push(...response.data);
+        })
+        .catch((e) => {
+          console.log("e", e);
+        });
   },
 
   updated() {
@@ -41,22 +87,29 @@ export default {
   mounted() {
     this.scrollToEnd();
   },
-  watch:{
-    changeToUser(n){
+  watch: {
+    changeToUser(n) {
       axios
         .get(
-          "http://localhost:3000/chat?id="+this.userInfo[0].id+"&to="+this.changeToUser.id+"&to="+this.userInfo[0].id+"&id="+this.changeToUser.id
+          "http://localhost:3000/chat?id=" +
+            this.userInfo[0].id +
+            "&to=" +
+            this.changeToUser.id +
+            "&to=" +
+            this.userInfo[0].id +
+            "&id=" +
+            this.changeToUser.id
         )
         .then((response) => {
           console.log("response chat", response);
-          this.chatLog = []
+          this.chatLog = [];
           this.chatLog.push(...response.data);
         })
         .catch((e) => {
           console.log("e", e);
         });
-    }
-  }
+    },
+  },
 };
 </script>
 <style scoped>
