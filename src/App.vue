@@ -1,14 +1,15 @@
 <template>
   <div>
-    <div class="container">
-      <div>
-        <div>
-          <login
+     <login
             style="margin-top: 200px"
             v-if="loginIsActive"
             @UserInfo="pushList"
             @logIn="checkLoginStatus"
           />
+    <div class="container">
+      <div>
+        <div>
+         
         </div>
         <div
           class="chat--app--container d-flex justify-content-between align-items-start"
