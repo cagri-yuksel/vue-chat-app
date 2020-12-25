@@ -1,28 +1,32 @@
 {
   "users": [
     {
-      "id": 81,
-      "username": "red",
+      "id": 1,
+      "userID": 1,
+      "username": "cagriyuksel",
       "fullname": "Çağrı Yüksel",
       "password": "123",
       "img": "https://avatars3.githubusercontent.com/u/50049470?s=45"
     },
     {
-      "id": 20,
+      "id": 2,
+      "userID": 2,
       "username": "baristunar",
       "fullname": "Barış Tunar",
       "password": "4",
       "img": "https://avatars2.githubusercontent.com/u/58105650?s=45"
     },
     {
-      "id": 15,
+      "id": 3,
+      "userID": 3,
       "username": "Korayguler",
       "fullname": "Koray Güler",
       "password": "0",
       "img": "https://avatars2.githubusercontent.com/u/44482506?s=45"
     },
     {
-      "id": 45,
+      "id": 4,
+      "userID": 4,
       "username": "cengizmataraci",
       "fullname": "Cengiz Mataracı",
       "password": "0",
@@ -31,10 +35,11 @@
   ],
   "chat": [
     {
-      "id": 81,
-      "mesaj": ["test"],
-      "to": 15,
-      "date": "UTC"
+      "userID": 1,
+      "mesaj": "barış sonunda başardık sanırım?",
+      "to": 2,
+      "date": "UTC",
+      "id": 1
     }
   ]
 }
