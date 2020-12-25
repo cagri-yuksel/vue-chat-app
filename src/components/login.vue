@@ -37,6 +37,7 @@
 <script>
 import axios from "axios";
 export default {
+  emits:["user-info", "login"],
   data() {
     return {
       username: null,
@@ -53,18 +54,15 @@ export default {
       } else {
         axios
           .get(
-            "http://localhost:3000/users?password=" +
-              this.pswrd +
-              "&username=" +
-              this.username
+            "http://localhost:3000/users?password="+this.pswrd+"&username="+this.username
           )
           .then((res) => {
             this.userList = res.data;
             console.log(res);
             if (this.userList.length > 0) {
               this.status = false;
-              this.$emit("logIn", this.status);
-              this.$emit("UserInfo", this.userList);
+              this.$emit("login", this.status);
+              this.$emit("user-info", this.userList);
             } else {
               alert("Hatalı kullanıcı adı/Şifre");
               this.status = true;
@@ -75,6 +73,7 @@ export default {
           });
       }
     },
+      
   },
 };
 </script>

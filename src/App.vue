@@ -1,10 +1,9 @@
 <template>
   <div>
      <login
-            style="margin-top: 200px"
             v-if="loginIsActive"
-            @UserInfo="pushList"
-            @logIn="checkLoginStatus"
+            @user-info="pushList"
+            @login="checkLoginStatus"
           />
     <div class="container">
       <div>
