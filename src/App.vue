@@ -1,7 +1,7 @@
 <template>
   <div>
      <login
-            style="margin-top: 200px"
+            
             v-if="loginIsActive"
             @UserInfo="pushList"
             @logIn="checkLoginStatus"
