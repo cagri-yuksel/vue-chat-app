@@ -90,9 +90,7 @@ export default {
 };
 </script>
 <style scoped>
-.back {
-  background-color: #edafb8 !important;
-}
+
 .text-color-black{
   color: black;
 }
