@@ -63,6 +63,9 @@ export default {
 };
 </script>
 <style scoped>
+.back {
+  background-color: red !important;
 
+}
 </style>
 
