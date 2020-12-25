@@ -34,6 +34,19 @@
     }
   ],
   "chat": [
-    
+    {
+      "userID": 2,
+      "mesaj": "test",
+      "to": 1,
+      "time": "02:34",
+      "id": 1
+    },
+    {
+      "userID": 2,
+      "mesaj": "selam abi",
+      "to": 1,
+      "time": "02:34",
+      "id": 2
+    }
   ]
 }

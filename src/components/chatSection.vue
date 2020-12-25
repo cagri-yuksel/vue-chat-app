@@ -8,7 +8,7 @@
         class="text-color-black"
       >
         {{ i.mesaj }}
-        <small>{{i.time}}</small>
+        <small>{{ i.time }}</small>
       </li>
     </ul>
     <div class="text-container d-flex justify-content-start align-items-start">
@@ -32,24 +32,27 @@ export default {
   },
 
   methods: {
+    addZero(i) {
+      if (i < 10) {
+        i = "0" + i;
+      }
+      return i;
+    },
     scrollToEnd() {
       let content = this.$refs.container;
       content.scrollTop = content.scrollHeight;
     },
     sendMessage() {
       const currentTime = new Date();
-      const currentHour = currentTime.getHours();
-      const currentMinute = currentTime.getMinutes();
+      const currentHour = this.addZero(currentTime.getHours());
+      const currentMinute = this.addZero(currentTime.getMinutes());
 
       while (this.message !== "") {
         let chat = {
           userID: this.userInfo[0].userID,
           mesaj: this.message,
           to: this.changeToUser.userID,
-          time:
-            currentMinute < 0
-              ? currentHour + ":0" + currentMinute
-              : currentHour + ":" + currentMinute,
+          time: currentHour +":"+currentMinute
         };
         this.message = "";
 
@@ -71,26 +74,6 @@ export default {
       return this.message == "" ? true : false;
     },
   },
-  /*  created(){
-axios
-        .get(
-          "http://localhost:3000/chat?id=" +
-            this.userInfo[0].id +
-            "&to=" +
-            this.changeToUser.id +
-            "&to=" +
-            this.userInfo[0].id +
-            "&id=" +
-            this.changeToUser.id
-        )
-        .then((response) => {
-          console.log("response chat", response);
-          this.chatLog.push(...response.data);
-        })
-        .catch((e) => {
-          console.log("e", e);
-        });
-  }, */
 
   updated() {
     this.scrollToEnd();
