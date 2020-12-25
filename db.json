@@ -1,22 +1,80 @@
 {
-  "user": [
+  "users": [
     {
       "id": 1,
-      "username": "çağrı yüksel",
-      "status": false,
-      "password": "123"
+      "userID": 1,
+      "username": "cagriyuksel",
+      "fullname": "Çağrı Yüksel",
+      "password": "123456",
+      "img": "https://avatars3.githubusercontent.com/u/50049470?s=45"
     },
     {
       "id": 2,
-      "username": "barış tunar",
-      "status": true,
-      "password": "123"
+      "userID": 2,
+      "username": "baristunar",
+      "fullname": "Barış Tunar",
+      "password": "123456",
+      "img": "https://avatars2.githubusercontent.com/u/58105650?s=45"
+    },
+    {
+      "id": 3,
+      "userID": 3,
+      "username": "korayguler",
+      "fullname": "Koray Güler",
+      "password": "123456",
+      "img": "https://avatars2.githubusercontent.com/u/44482506?s=45"
+    },
+    {
+      "id": 4,
+      "userID": 4,
+      "username": "cengizmataraci",
+      "fullname": "Cengiz Mataracı",
+      "password": "123456",
+      "img": "https://avatars2.githubusercontent.com/u/13690848?s=45"
     }
   ],
   "chat": [
     {
-      "id": 1,
-      "body": "some comment",
-      "postId": 1
-    } ]
+      "userID": 1,
+      "mesaj": "baris abi sanırım yırttık uygulama çalışıyor.",
+      "to": 2,
+      "date": "UTC",
+      "id": 1
+    },
+    {
+      "userID": 1,
+      "mesaj": "selam koray nasıl gidiyor?",
+      "to": 3,
+      "date": "UTC",
+      "id": 2
+    },
+    {
+      "userID": 1,
+      "mesaj": "selam abi bizim işler noldu?",
+      "to": 4,
+      "date": "UTC",
+      "id": 3
+    },
+    {
+      "userID": 2,
+      "mesaj": "harbi mi diyorsun?",
+      "to": 1,
+      "date": "UTC",
+      "id": 4
+    },
+    {
+      "userID": 2,
+      "mesaj": "koray nerelerdesin",
+      "to": 3,
+      "date": "UTC",
+      "id": 5
+    },
+    {
+      "userID": 2,
+      "mesaj": "abi benim banı kaldırır mısın?",
+      "to": 4,
+      "date": "UTC",
+      "id": 6
+    }
+  ]
 }

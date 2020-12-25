@@ -1,26 +1,99 @@
 <template>
   <div class="card mr-10">
-    <ul class="messages">
-      <li>
-        olmaz o şekilde neden yaptigini bilmiyorum ama saçma olmuş o sanki<small
-          >14:55</small
-        >
-      </li>
-      <li class="current-user">
-        abi bak bana burasi neden b şekilde büyük olur bilmiyorum ama böyle bir
-        mesaj görmedim. biraz daja büyütürsem ne olacak<small>14:55</small>
+    <ul class="messages" ref="container">
+      <li
+        :class="{ 'current-user': userInfo[0].userID == i.userID }"
+        v-for="i in chatLog"
+        :key="i"
+        class="text-color-black"
+      >
+        {{ i.mesaj }}
       </li>
     </ul>
     <div class="text-container d-flex justify-content-start align-items-start">
-      <input placeholder="Kurs nasıl gidiyor? :)" type="text" />
-      <button class="btn-primary">Gönder</button>
+      <input @keypress.enter="sendMessage" v-model="message" type="text" />
+      <button :disabled="isDisable" class="btn-primary" @click="sendMessage">
+        Send
+      </button>
     </div>
   </div>
 </template>
 
 <script>
-export default {};
-</script>
+import axios from "axios";
+export default {
+  props: ["userInfo", "changeToUser"],
+  data() {
+    return {
+      chatLog: [],
+      message: "",
+    };
+  },
 
-<style>
+  methods: {
+    scrollToEnd() {
+      let content = this.$refs.container;
+      content.scrollTop = content.scrollHeight;
+    },
+    sendMessage() {
+      while(this.message !== ""){
+         let chat = {
+        userID: this.userInfo[0].userID,
+        mesaj: this.message,
+        to: this.changeToUser.userID,
+        date: "UTC",
+      };
+      this.message = ""
+
+      axios
+        .post("http://localhost:3000/chat", chat)
+        .then((save_message) => {
+          console.log("save_message", save_message);
+          this.chatLog.push(save_message.data);
+        })
+        .catch((e) => {
+          console.log("e ", e)
+        });
+      console.log(chat);
+      }
+     
+    },
+  },
+  computed: {
+    isDisable() {
+      return this.message == "" ? true : false;
+    },
+  },
+
+  updated() {
+    this.scrollToEnd();
+  },
+  mounted() {
+    this.scrollToEnd();
+  },
+  watch: {
+    changeToUser() {
+      axios
+        .get(
+          "http://localhost:3000/chat?userID="+this.userInfo[0].userID+"&to="+this.changeToUser.userID+"&to="+this.userInfo[0].userID+"&userID="+this.changeToUser.userID
+        )
+        .then((response) => {
+          console.log("response chat", response);
+          this.chatLog = []
+          this.chatLog.push(...response.data);
+        })
+        .catch((e) => {
+          console.log("e", e);
+        })
+    },
+  },
+};
+</script>
+<style scoped>
+.back {
+  background-color: #edafb8 !important;
+}
+.text-color-black{
+  color: black;
+}
 </style>
