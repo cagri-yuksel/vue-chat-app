@@ -10,7 +10,7 @@
       </li>
     </ul>
     <div class="text-container d-flex justify-content-start align-items-start">
-      <input @keypress.enter="testMethod" v-model="message" type="text" />
+      <input @keypress.enter="sendMessage" v-model="message" type="text" />
       <button :disabled="isDisable" class="btn-primary" @click="sendMessage">
         Send
       </button>
@@ -35,7 +35,8 @@ export default {
       content.scrollTop = content.scrollHeight;
     },
     sendMessage() {
-      let chat = {
+      while(this.message !== ""){
+         let chat = {
         userID: this.userInfo[0].userID,
         mesaj: this.message,
         to: this.changeToUser.userID,
@@ -53,6 +54,8 @@ export default {
           console.log("e ", e)
         });
       console.log(chat);
+      }
+     
     },
   },
   computed: {
