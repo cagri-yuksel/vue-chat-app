@@ -1,28 +1,30 @@
 <template>
   <div>
-    <login
-      v-if="loginIsActive"
-      @UserInfo="pushList"
-      @logIn="checkLoginStatus"
-    />
-
+     <login
+            style="margin-top: 200px"
+            v-if="loginIsActive"
+            @UserInfo="pushList"
+            @logIn="checkLoginStatus"
+          />
     <div class="container">
-      <div
-        class="chat--app--container d-flex justify-content-between align-items-start"
-      >
-        <chat-section
-          :userInfo="userInfo"
-          v-if="!loginIsActive"
-          :users="users"
-          :changeToUser="changeToUser"
-        />
-        <active-users :userInfo="userInfo" @toUserChange="changeUser" v-if="!loginIsActive" />
-        <!-- chatsection -->
-        <!-- active users -->
-        <!-- database yeniden topluyalım [[ ]] olarak dönüyor o bende çalışanı koydum -->
-        <!-- login tamam hızlıca tasarımı bitiririm. -->
-        <!-- chatting bence ayrı olmalı chat ayrı bir arrayi içinde app.vue içersinde aktif kullanıcın id si yada nicki alınarak chat
-      arrayi içersinden ona ait olan konuşmalar dökülsün  -->
+      <div>
+        <div>
+         
+        </div>
+        <div
+          class="chat--app--container d-flex justify-content-between align-items-start"
+        >
+          <chat-section
+            :userInfo="userInfo"
+            v-if="!loginIsActive"
+            :changeToUser="changeToUser"
+          />
+          <active-users
+            :userInfo="userInfo"
+            @toUserChange="changeUser"
+            v-if="!loginIsActive"
+          />
+        </div>
       </div>
     </div>
   </div>
@@ -43,16 +45,9 @@ export default {
   },
   data() {
     return {
-      users: [],
-      userData: {
-        username: "baristunar",
-        password: "123",
-        fullName: "Barış Tunar",
-        message: "",
-      },
       userInfo: [],
       loginIsActive: true,
-     changeToUser:null,
+      changeToUser: null,
     };
   },
   methods: {
@@ -62,11 +57,13 @@ export default {
     pushList(userList) {
       this.userInfo.push(...userList);
     },
-    changeUser(toUser){
-      this.changeToUser = toUser
-
-    }
+    changeUser(toUser) {
+      this.changeToUser = toUser;
+    },
   },
 };
 </script>
+<style scoped>
+
+</style>
 

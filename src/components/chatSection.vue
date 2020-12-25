@@ -1,20 +1,18 @@
 <template>
   <div class="card mr-10">
     <ul class="messages" ref="container">
-      <li :class="{ 'current-user' : userInfo[0].id == i.id }" v-for="i in chatLog"  :key="i">i.mesaj: {{ i.mesaj }}</li>
-      <li v-for="i in chatLog" :key="i">alt bölüm {{ i }}</li>
-    </ul>
-    <!--       <li
-        v-for="user in users"
-        :key="user.id"
-        :class="{ 'current-user': activeUser }"
+      <li
+        :class="{ 'current-user': userInfo[0].userID == i.userID }"
+        v-for="i in chatLog"
+        :key="i"
+        class="text-color-black"
       >
-        {{ user.message }}<small>14:55</small>
-      </li> -->
-
+        {{ i.mesaj }}
+      </li>
+    </ul>
     <div class="text-container d-flex justify-content-start align-items-start">
-      <input @keypress.enter="testMethod" v-model="message" type="text" />
-      <button :disabled="isDisable" class="btn-primary" @click="testMethod()">
+      <input @keypress.enter="sendMessage" v-model="message" type="text" />
+      <button :disabled="isDisable" class="btn-primary" @click="sendMessage">
         Send
       </button>
     </div>
@@ -24,7 +22,7 @@
 <script>
 import axios from "axios";
 export default {
-  props: ["users", "userInfo", "changeToUser"],
+  props: ["userInfo", "changeToUser"],
   data() {
     return {
       chatLog: [],
@@ -36,6 +34,29 @@ export default {
     scrollToEnd() {
       let content = this.$refs.container;
       content.scrollTop = content.scrollHeight;
+    },
+    sendMessage() {
+      while(this.message !== ""){
+         let chat = {
+        userID: this.userInfo[0].userID,
+        mesaj: this.message,
+        to: this.changeToUser.userID,
+        date: "UTC",
+      };
+      this.message = ""
+
+      axios
+        .post("http://localhost:3000/chat", chat)
+        .then((save_message) => {
+          console.log("save_message", save_message);
+          this.chatLog.push(save_message.data);
+        })
+        .catch((e) => {
+          console.log("e ", e)
+        });
+      console.log(chat);
+      }
+     
     },
   },
   computed: {
@@ -50,11 +71,11 @@ export default {
   mounted() {
     this.scrollToEnd();
   },
-  watch:{
-    changeToUser(n){
+  watch: {
+    changeToUser() {
       axios
         .get(
-          "http://localhost:3000/chat?id="+this.userInfo[0].id+"&to="+this.changeToUser.id+"&to="+this.userInfo[0].id+"&id="+this.changeToUser.id
+          "http://localhost:3000/chat?userID="+this.userInfo[0].userID+"&to="+this.changeToUser.userID+"&to="+this.userInfo[0].userID+"&userID="+this.changeToUser.userID
         )
         .then((response) => {
           console.log("response chat", response);
@@ -63,9 +84,14 @@ export default {
         })
         .catch((e) => {
           console.log("e", e);
-        });
-    }
-  }
+        })
+    },
+  },
 };
 </script>
+<style scoped>
 
+.text-color-black{
+  color: black;
+}
+</style>

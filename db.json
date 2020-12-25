@@ -1,61 +1,80 @@
 {
   "users": [
     {
-      "id": 81,
-      "username": "red",
-      "status": false,
-      "password": "123"
+      "id": 1,
+      "userID": 1,
+      "username": "cagriyuksel",
+      "fullname": "Çağrı Yüksel",
+      "password": "123456",
+      "img": "https://avatars3.githubusercontent.com/u/50049470?s=45"
     },
     {
-      "id": 20,
+      "id": 2,
+      "userID": 2,
       "username": "baristunar",
-      "status": true,
-      "password": "4",
+      "fullname": "Barış Tunar",
+      "password": "123456",
       "img": "https://avatars2.githubusercontent.com/u/58105650?s=45"
     },
     {
-      "id": 15,
-      "username": "okkito",
-      "status": true,
-      "password": "0"
+      "id": 3,
+      "userID": 3,
+      "username": "korayguler",
+      "fullname": "Koray Güler",
+      "password": "123456",
+      "img": "https://avatars2.githubusercontent.com/u/44482506?s=45"
+    },
+    {
+      "id": 4,
+      "userID": 4,
+      "username": "cengizmataraci",
+      "fullname": "Cengiz Mataracı",
+      "password": "123456",
+      "img": "https://avatars2.githubusercontent.com/u/13690848?s=45"
     }
   ],
   "chat": [
     {
-      "id": 81,
-      "mesaj": "selam",
-      "to": 15,
-      "date": "UTC"
+      "userID": 1,
+      "mesaj": "baris abi sanırım yırttık uygulama çalışıyor.",
+      "to": 2,
+      "date": "UTC",
+      "id": 1
     },
     {
-      "id": 15,
-      "mesaj": "merhaba",
-      "to": 81,
-      "date": "UTC"
+      "userID": 1,
+      "mesaj": "selam koray nasıl gidiyor?",
+      "to": 3,
+      "date": "UTC",
+      "id": 2
     },
     {
-      "id": 81,
-      "mesaj": "selams",
-      "to": 20,
-      "date": "UTC"
+      "userID": 1,
+      "mesaj": "selam abi bizim işler noldu?",
+      "to": 4,
+      "date": "UTC",
+      "id": 3
     },
     {
-      "id": 15,
-      "mesaj": "merhaba",
-      "to": 20,
-      "date": "UTC"
+      "userID": 2,
+      "mesaj": "harbi mi diyorsun?",
+      "to": 1,
+      "date": "UTC",
+      "id": 4
     },
     {
-      "id": 20,
-      "mesaj": "Okkito",
-      "to": 81,
-      "date": "UTC"
+      "userID": 2,
+      "mesaj": "koray nerelerdesin",
+      "to": 3,
+      "date": "UTC",
+      "id": 5
     },
     {
-      "id": 20,
-      "mesaj": "2 seçildi",
-      "to": 15,
-      "date": "UTC"
+      "userID": 2,
+      "mesaj": "abi benim banı kaldırır mısın?",
+      "to": 4,
+      "date": "UTC",
+      "id": 6
     }
   ]
 }
