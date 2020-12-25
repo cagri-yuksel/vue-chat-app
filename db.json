@@ -34,47 +34,6 @@
     }
   ],
   "chat": [
-    {
-      "userID": 1,
-      "mesaj": "baris abi sanırım yırttık uygulama çalışıyor.",
-      "to": 2,
-      "date": "UTC",
-      "id": 1
-    },
-    {
-      "userID": 1,
-      "mesaj": "selam koray nasıl gidiyor?",
-      "to": 3,
-      "date": "UTC",
-      "id": 2
-    },
-    {
-      "userID": 1,
-      "mesaj": "selam abi bizim işler noldu?",
-      "to": 4,
-      "date": "UTC",
-      "id": 3
-    },
-    {
-      "userID": 2,
-      "mesaj": "harbi mi diyorsun?",
-      "to": 1,
-      "date": "UTC",
-      "id": 4
-    },
-    {
-      "userID": 2,
-      "mesaj": "koray nerelerdesin",
-      "to": 3,
-      "date": "UTC",
-      "id": 5
-    },
-    {
-      "userID": 2,
-      "mesaj": "abi benim banı kaldırır mısın?",
-      "to": 4,
-      "date": "UTC",
-      "id": 6
-    }
+    
   ]
 }
