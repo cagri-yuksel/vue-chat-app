@@ -1,7 +1,7 @@
 <template>
   <div class="card card-light w-40">
     <div class="card--header">
-      <h3>Aktif Kullanıcılar</h3>
+      <h3>Arkadaşlar</h3>
     </div>
     <div
       class="card--body list-group"
@@ -40,7 +40,9 @@ export default {
     };
   },
   methods: {
+   
     changeValue(e) {
+      console.log("USERİNFO",e);
       this.toUser = e;
       this.$emit("toUserChange", this.toUser);
     },
