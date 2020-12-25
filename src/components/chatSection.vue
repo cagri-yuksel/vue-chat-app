@@ -2,7 +2,7 @@
   <div class="card mr-10">
     <ul class="messages" ref="container">
       <li
-        :class="{ 'current-user': userInfo[0].id == i.userId }"
+        :class="{ 'current-user': userInfo[0].userID == i.userID }"
         v-for="i in chatLog"
         :key="i"
       >
@@ -10,7 +10,7 @@
       </li>
     </ul>
     <div class="text-container d-flex justify-content-start align-items-start">
-      <input @keypress.enter="testMethod" v-model="message" type="text" />
+      <input @keypress.enter="sendMessage" v-model="message" type="text" />
       <button :disabled="isDisable" class="btn-primary" @click="sendMessage">
         Send
       </button>
@@ -35,24 +35,27 @@ export default {
       content.scrollTop = content.scrollHeight;
     },
     sendMessage() {
-   
-
-
-      const chat = {
-      userId:this.userInfo[0].id,
+      while(this.message !== ""){
+         let chat = {
+        userID: this.userInfo[0].userID,
         mesaj: this.message,
-        to: this.changeToUser.id,
+        to: this.changeToUser.userID,
         date: "UTC",
       };
+      this.message = ""
 
       axios
-        .post("http://localhost:3000/chat",chat)
+        .post("http://localhost:3000/chat", chat)
         .then((save_message) => {
           console.log("save_message", save_message);
-          this.chatLog.push(save_message.data)
-          
+          this.chatLog.push(save_message.data);
+        })
+        .catch((e) => {
+          console.log("e ", e)
         });
-          console.log(chat);
+      console.log(chat);
+      }
+     
     },
   },
   computed: {
@@ -60,6 +63,7 @@ export default {
       return this.message == "" ? true : false;
     },
   },
+<<<<<<< HEAD
  /*  created(){
 axios
         .get(
@@ -80,6 +84,8 @@ axios
           console.log("e", e);
         });
   }, */
+=======
+>>>>>>> 410d0e0ef0e2e7e19557f087e47d949615889292
 
   updated() {
     this.scrollToEnd();
@@ -88,26 +94,19 @@ axios
     this.scrollToEnd();
   },
   watch: {
-    changeToUser(n) {
+    changeToUser() {
       axios
         .get(
-          "http://localhost:3000/chat?id=" +
-            this.userInfo[0].id +
-            "&to=" +
-            this.changeToUser.id +
-            "&to=" +
-            this.userInfo[0].id +
-            "&id=" +
-            this.changeToUser.id
+          "http://localhost:3000/chat?userID="+this.userInfo[0].userID+"&to="+this.changeToUser.userID+"&to="+this.userInfo[0].userID+"&userID="+this.changeToUser.userID
         )
         .then((response) => {
           console.log("response chat", response);
-          this.chatLog = [];
+          this.chatLog = []
           this.chatLog.push(...response.data);
         })
         .catch((e) => {
           console.log("e", e);
-        });
+        })
     },
   },
 };
