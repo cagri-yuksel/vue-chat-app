@@ -63,7 +63,6 @@ export default {
       return this.message == "" ? true : false;
     },
   },
-<<<<<<< HEAD
  /*  created(){
 axios
         .get(
@@ -84,8 +83,6 @@ axios
           console.log("e", e);
         });
   }, */
-=======
->>>>>>> 410d0e0ef0e2e7e19557f087e47d949615889292
 
   updated() {
     this.scrollToEnd();
