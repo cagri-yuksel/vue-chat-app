@@ -60,7 +60,7 @@ export default {
       return this.message == "" ? true : false;
     },
   },
-  created(){
+ /*  created(){
 axios
         .get(
           "http://localhost:3000/chat?id=" +
@@ -79,7 +79,7 @@ axios
         .catch((e) => {
           console.log("e", e);
         });
-  },
+  }, */
 
   updated() {
     this.scrollToEnd();
