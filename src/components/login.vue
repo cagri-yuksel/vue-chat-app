@@ -1,5 +1,8 @@
 <template>
+  <h1 class="text-center mt-5 text-size">MESSENGER OFFLINE</h1>
+  <p class="text-center " style="font-size : 24px" >for the lonely people</p>
   <div>
+    
     <div class="container centered">
       <div>
         <form class="px-4 py-3">
@@ -77,11 +80,14 @@ export default {
 </script>
 <style scoped>
 .centered {
-  margin-top: 15%;
+  margin-top: 10%;
 }
 .centered button {
-  margin-left: 34%;
+  margin-left: 31%;
   margin-top: -10%;
+}
+.text-size{
+  font-size: 56px !important;
 }
 
 </style>

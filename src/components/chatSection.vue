@@ -5,6 +5,7 @@
         :class="{ 'current-user': userInfo[0].userID == i.userID }"
         v-for="i in chatLog"
         :key="i"
+        class="text-color-black"
       >
         {{ i.mesaj }}
       </li>
@@ -109,7 +110,8 @@ axios
 };
 </script>
 <style scoped>
-.back {
-  background-color: #edafb8 !important;
+
+.text-color-black{
+  color: black;
 }
 </style>
